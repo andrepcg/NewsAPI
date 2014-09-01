@@ -37,39 +37,13 @@ exports.random = function(req, res) {
         if(l > limite)
             l = limite;
 
-        Noticias.queryRandom()
-            .select("-random -__v")
-            .limit(l)
-            .exec(function(err, data){
-                if(err)
-                    res.json({status: "error", error: err});
-                if(data)
-                    res.json({status: "ok", data: data});
-            });
-        /*
-        Noticias.findRandom(function(err, data){
-            if(err)
+        Noticias.findRandom().limit(l).exec(function (err, data) {
+			if(err)
                 res.json({status: "error", error: err});
             if(data)
                 res.json({status: "ok", data: data});
-        }, l);
-        */
-/*
-        async.times(l, function(n, next){
+		});
 
-            Noticias.findRandom(function(err, data){
-                var r = data.toObject();
-                delete r.random;
-                delete r.__v;
-                next(err, r);
-            });
-        }, function(err, final) {
-            if(err)
-                res.json({status: "error", data: null});
-            if(final)
-                res.json({status: "ok", data: final});
-        });
-*/
 
     }
 
