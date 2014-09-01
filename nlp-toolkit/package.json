@@ -1,0 +1,38 @@
+{
+  "author": {
+    "name": "Alexander Behrens"
+  },
+  "name": "nlp-toolkit",
+  "description": "A little helper module to execute nlp operations",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amberlamps/nlp-toolkit"
+  },
+  "main": "./lib/index",
+  "dependencies": {
+    "porter-stemmer": "0.9.x"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "keywords": [
+    "nlp",
+    "porter",
+    "stemmer",
+    "tokenize",
+    "tokenizer",
+    "stopwords"
+  ],
+  "readme": "# Natural Language Processing Toolkit for node.js #\n\n## Overview ##\n\nThere is a more mature node.js module for NLP out there, but as both NLP and node.js are my hobbies I created this module to dig deeper into both topics.\n\n## Installation ##\n\n\tnpm install nlp-toolkit\n\t\n## Usage ##\n\n\tvar nlp = require(\"nlp-toolkit\");\n\t\n## Tokenizer ##\n\n\t> var tokenizer = new nlp.Tokenizer();\n\t> tokenizer.tokenize(\"That is a tokenizer.\");\n\t[ 'That', 'is', 'a', 'tokenizer' ]\n\t\n\t> var tokenizer = new nlp.Tokenizer({\n\t    stopwords: 'english',\n\t\tporter: true\n\t  });\n\t> tokenizer.tokenize(\"That is a Tokenizer.\");\n\t'token'",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/Amberlamps/nlp-toolkit/issues"
+  },
+  "homepage": "https://github.com/Amberlamps/nlp-toolkit",
+  "_id": "nlp-toolkit@0.1.1",
+  "dist": {
+    "shasum": "969ac7f9eedc6e3ab38524e1b2e4545e8c20ebb9"
+  },
+  "_from": "nlp-toolkit@",
+  "_resolved": "https://registry.npmjs.org/nlp-toolkit/-/nlp-toolkit-0.1.1.tgz"
+}

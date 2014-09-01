@@ -1,0 +1,20 @@
+{
+  "v": 1,
+  "key": {
+    "_fts": "text",
+    "_ftsx": 1
+  },
+  "name": "text",
+  "ns": "noticias_txt.noticias",
+  "background": true,
+  "weights": {
+    "titulo": 1,
+    "subtitulo": 1,
+    "textoNoticia": 1,
+    "categoria": 1,
+    "keywords": 1
+  },
+  "default_language": "portuguese",
+  "language_override": "language",
+  "textIndexVersion": 2
+}
