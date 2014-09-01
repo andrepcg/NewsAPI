@@ -1,11 +1,12 @@
 //require('graphdat');
 //require('newrelic');
 
+/*
 require('nodetime').profile({
     accountKey: '61800f4ee2e561efe86314bb98e3df42fa91181e',
     appName: 'NewsAPI'
 });
-
+*/
 
 var http = require('http');
 var path = require('path');
@@ -26,6 +27,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var routeApi   = require("./app/routes/api");
 var api = express.Router();
+var config = require("./config");
 
 var User = require("./app/models/user");
 
@@ -124,8 +126,14 @@ api.get('/noticias/:id/:likeOrdislike', isLoggedIn, routeApi.userLikeDislike);
 
 app.use('/api', api);
 
+var parsers = require("./app/parsers");
+
 app.get('/', function(req, res) {
-	res.send('API working');	
+	var j = [];
+	parsers.nomesJornais.forEach(function(item){
+		j.push("/api/jornal/" + item);
+	});
+	res.send({"baseUrl": config.url, endpoints: j});	
 });
 
 

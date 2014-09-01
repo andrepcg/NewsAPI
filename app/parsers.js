@@ -144,4 +144,4 @@ var req = function(url, provider, cb){
     });
 }
 
-module.exports = parsers;
+module.exports = {parsers: parsers, nomesJornais: nomesJornais};
