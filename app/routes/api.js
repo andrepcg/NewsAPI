@@ -11,8 +11,8 @@ exports.ultimas = function(req, res) {
 
     Noticias.find()
         .sort("-timestamp")
-        .select("-random")
-        .limit(isNaN(l) ? 10 : l)
+        .select("-random -__v")
+        .limit(isNaN(l) ? 10 : (l > 10) ? l = 10 : l)
         .exec(function(err, data){if(err)
             if(err)
                 res.json({status: "error", error: err});
@@ -52,16 +52,11 @@ exports.random = function(req, res) {
 exports.jornal = function(req, res) {
 
     var l = parseInt(req.params.qtd);
-    if(isNaN(l))
-        l = 10;
-    else
-        if(l > 50)
-            l = 50;
 
     Noticias.find({ $or: [{"jornalLowercase": req.params.nome.toLowerCase()}, {"jornal": req.params.nome} ]})
         .sort("-timestamp")
         .select("-random")
-        .limit(l)
+        .limit(isNaN(l) ? 10 : (l > 20) ? l = 20 : l)
         .exec(function(err, data){
             if(err)
                 res.json({status: "error", data: null});

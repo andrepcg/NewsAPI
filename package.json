@@ -23,7 +23,8 @@
 	"cheerio": "latest",
     "iconv-lite": "0.4.4",
     "jschardet": "latest",
-	"moment": "latest"
+	"moment": "latest",
+	"nodetime": "latest"
   },
   "devDependencies": {},
   "scripts": {

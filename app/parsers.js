@@ -8,12 +8,14 @@ var jschardet = require("jschardet");
 var Noticia = require('./models/noticia');
 
 var p = {};
+var nomesJornais = [];
 
 fs.readdirSync("./app/parsers").forEach(function(file) {
     var f = require("./parsers/" + file);
     var hostname = f.hostname;
+	nomesJornais.push(f.nome);
     p[hostname] = f;
-    //console.log(p)
+    
 });
 
 var chooseProvider = function(url2, cb){
