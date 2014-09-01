@@ -10,7 +10,6 @@ require('nodetime').profile({
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
-var Crawler = require('./crawler');
 var passport 	= require('passport');
 
 var fs = require("fs");
