@@ -17,7 +17,7 @@
     "morgan": "1.2.2",
     "passport": "^0.2.0",
     "request": "latest",
-    "underscore": "latest"
+    "underscore": "latest",
     "sanitize-html": "1.3.0",
     "underscore": "latest",
 	"bcrypt-nodejs": "latest"
