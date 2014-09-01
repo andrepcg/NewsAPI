@@ -124,6 +124,10 @@ api.get('/noticias/:id/:likeOrdislike', isLoggedIn, routeApi.userLikeDislike);
 
 app.use('/api', api);
 
+app.get('/', function(req, res) {
+	res.send('API working');	
+});
+
 
 app.listen(port);
 console.log('Server running on port ' + port);
