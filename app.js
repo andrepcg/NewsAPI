@@ -116,6 +116,7 @@ function generateNewUser(req, res, next) {
         next();
 }
 //app.all('*', generateNewUser);
+api.get('/jornal/:nome/:qtd', routeApi.jornal);
 api.get('/jornal/:nome', routeApi.jornal);
 
 api.get('/noticias/ultimas/:qtd', routeApi.ultimas);
