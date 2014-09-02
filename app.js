@@ -38,12 +38,21 @@ mongoose.connection.on('disconnected', function() {
 });
 var port = process.env.PORT || 8080;
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+    next();
+}
+
 app.use(morgan(':method :url :status :response-time ms - :res[content-length] (:remote-addr)'));
 app.use(cookieParser());
+
 app.use(session({ secret: 'jihu2378-f290_348', cookie: { expires: false }}));
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(allowCrossDomain);
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
