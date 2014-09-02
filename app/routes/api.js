@@ -6,13 +6,13 @@ var async = require('async');
 var tfidf = require("../../app").tfidf;
 
 exports.ultimas = function(req, res) {
-
+	var limite = 40;
     var l = parseInt(req.params.qtd);
 
     Noticias.find()
         .sort("-timestamp")
         .select("-random -__v")
-        .limit(isNaN(l) ? 10 : (l > 10) ? l = 10 : l)
+        .limit(isNaN(l) ? 10 : (l > limite) ? l = limite : l)
         .exec(function(err, data){if(err)
             if(err)
                 res.json({status: "error", error: err});
@@ -52,11 +52,12 @@ exports.random = function(req, res) {
 exports.jornal = function(req, res) {
 
     var l = parseInt(req.params.qtd);
+	var limite = 40;
 
     Noticias.find({ $or: [{"jornalLowercase": req.params.nome.toLowerCase()}, {"jornal": req.params.nome} ]})
         .sort("-timestamp")
         .select("-random")
-        .limit(isNaN(l) ? 10 : (l > 20) ? l = 20 : l)
+        .limit(isNaN(l) ? 10 : (l > limite) ? l = limite : l)
         .exec(function(err, data){
             if(err)
                 res.json({status: "error", data: null});
