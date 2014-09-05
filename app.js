@@ -1,12 +1,12 @@
 //require('graphdat');
 //require('newrelic');
 
-
+/*
 require('nodetime').profile({
     accountKey: '61800f4ee2e561efe86314bb98e3df42fa91181e',
     appName: 'NewsAPI'
 });
-
+*/
 
 var http = require('http');
 var path = require('path');
@@ -32,10 +32,7 @@ var config = require("./config");
 var User = require("./app/models/user");
 
 mongoose.connect("mongodb://andrepcg2:LvhzD0BY4vXz1FhVzVDr@ds045099.mongolab.com:45099/noticias_txt");
-mongoose.connection.on('disconnected', function() {
-    console.log('MongoDB disconnected!');
-    mongoose.connect(dbURI, {server:{auto_reconnect:true}});
-});
+
 var port = process.env.PORT || 8080;
 
 var allowCrossDomain = function(req, res, next) {
@@ -185,12 +182,6 @@ Noticias.find()
         }
     });
 */
-var crypto = require('crypto-js');
-
-var noticiaHash = function(noticia){
-    return crypto.MD5(noticia.titulo + noticia.timestamp + noticia.jornal + noticia.textoNoticia) + '';
-}
-
 
 /*
 var clusterfck = require("clusterfck");

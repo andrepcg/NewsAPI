@@ -2,6 +2,7 @@ var Noticias = require('../models/noticia');
 var Users = require('../models/user');
 var parsers = require("../parsers");
 var async = require('async');
+var utils = require("../utils");
 
 var tfidf = require("../../app").tfidf;
 
@@ -54,7 +55,17 @@ exports.jornal = function(req, res) {
     var l = parseInt(req.params.qtd);
 	var limite = 40;
 
-    Noticias.find({ $or: [{"jornalLowercase": req.params.nome.toLowerCase()}, {"jornal": req.params.nome} ]})
+    var categoria = req.query.categoria;
+    var s;
+
+    if(categoria){
+        var categoria = utils.limparPalavra(categoria);
+        s = {"categoria": categoria, $or: [{"jornalLowercase": req.params.nome.toLowerCase()}, {"jornal": req.params.nome} ]};
+    }
+    else
+        s = { $or: [{"jornalLowercase": req.params.nome.toLowerCase()}, {"jornal": req.params.nome} ]};
+
+    Noticias.find(s)
         .sort("-timestamp")
         .select("-random")
         .limit(isNaN(l) ? 10 : (l > limite) ? l = limite : l)
