@@ -60,10 +60,10 @@ exports.jornal = function(req, res) {
 
     if(categoria){
         var categoria = utils.limparPalavra(categoria);
-        s = {"categoria": categoria, $or: [{"jornalLowercase": req.params.nome.toLowerCase()}, {"jornal": req.params.nome} ]};
+        s = {"categoria": categoria, "jornalLowercase": req.params.nome.toLowerCase()};
     }
     else
-        s = { $or: [{"jornalLowercase": req.params.nome.toLowerCase()}, {"jornal": req.params.nome} ]};
+        s = {"jornalLowercase": req.params.nome.toLowerCase()};
 
     Noticias.find(s)
         .sort("-timestamp")

@@ -64,10 +64,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="11" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.5151515" vertical-offset="357" max-vertical-offset="3468">
+            <state line="39" column="11" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="3468">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -75,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="api.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="53" selection-start="1515" selection-end="1515" vertical-scroll-proportion="-15.64" vertical-offset="646" max-vertical-offset="5440">
+            <state line="62" column="85" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.71704745" vertical-offset="646" max-vertical-offset="5440">
               <folding />
             </state>
           </provider>
@@ -114,8 +114,8 @@
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/utils.js" />
-        <option value="$PROJECT_DIR$/app/routes/api.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app/routes/api.js" />
       </list>
     </option>
   </component>
@@ -355,12 +355,12 @@
       <updated>1408527522752</updated>
       <workItem from="1408527526679" duration="1868000" />
       <workItem from="1409539220635" duration="50000" />
-      <workItem from="1409924494518" duration="2018000" />
+      <workItem from="1409924494518" duration="2268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3936000" />
+    <option name="totallyTimeSpent" value="4186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -419,13 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="1598">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/noticia.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
@@ -433,19 +426,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/api.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="53" selection-start="1515" selection-end="1515" vertical-scroll-proportion="-15.64" vertical-offset="646" max-vertical-offset="5440">
+        <state line="39" column="11" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="3468">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="1598">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/app/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="11" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.5151515" vertical-offset="357" max-vertical-offset="3468">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="62" column="85" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.71704745" vertical-offset="646" max-vertical-offset="5440">
+          <folding />
         </state>
       </provider>
     </entry>
