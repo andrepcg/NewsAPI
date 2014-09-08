@@ -1,12 +1,12 @@
 //require('graphdat');
 //require('newrelic');
 
-
+/*
 require('nodetime').profile({
     accountKey: '61800f4ee2e561efe86314bb98e3df42fa91181e',
     appName: 'NewsAPI'
 });
-
+*/
 
 var http = require('http');
 var path = require('path');
@@ -31,6 +31,8 @@ var config = require("./config");
 
 var User = require("./app/models/user");
 
+var user_sessions = require("./app/user_sessions");
+
 mongoose.connect("mongodb://andrepcg2:LvhzD0BY4vXz1FhVzVDr@ds045099.mongolab.com:45099/noticias_txt");
 
 var port = process.env.PORT || 8080;
@@ -50,69 +52,12 @@ app.use(session({ secret: 'jihu2378-f290_348', cookie: { expires: false }}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(allowCrossDomain);
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
 
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
 
 app.set('json spaces', 20);
 
-function isLoggedIn(req, res, next) {
 
-    if (req.isAuthenticated()){
-        console.log("user autenticado");
-        return next();
-    }
-    else if(req.cookies.token && req.cookies.uid){
-        console.log("a fazer login a partir dos cookies");
-        User.findOne({"token": req.cookies.token, "uid": req.cookies.uid})
-            .exec(function(err, user){
-                if (err)
-                    return next(err);
-
-                if(user){
-                    req.login(user, function(err) {
-                        if (err)
-                            return next(err);
-
-                        next();
-                    });
-                }
-            });
-    }
-
-}
-
-
-function generateNewUser(req, res, next) {
-
-    if(!req.cookies.token && !req.cookies.uid){
-        var u = {uid: utils.generateUUID(), token: utils.generateRandom(64)};
-        var user = new User(u);
-        user.save(function(err){
-            if(!err){
-                console.log("generating user");
-                res.cookie("token", u.token);
-                res.cookie("uid", u.uid);
-
-                req.login(user, function(err) {
-                    if (err)
-                        console.log("login err", err);
-
-                    next();
-                });
-            }
-        });
-    }
-    else
-        next();
-}
-//app.all('*', generateNewUser);
+//app.all('*', user_sessions.generateNewUser);
 api.get('/jornal/:nome/:qtd', routeApi.jornal);
 api.get('/jornal/:nome', routeApi.jornal);
 
@@ -128,8 +73,8 @@ api.get('/noticias/:id/related', routeApi.related);
 api.get('/noticias', routeApi.url);
 api.get('/noticias/:id', routeApi.getNoticia);
 
-api.get('/noticias/:id/:likeOrdislike', isLoggedIn, routeApi.userLikeDislike);
-api.get('/noticias/:id/:likeOrdislike', isLoggedIn, routeApi.userLikeDislike);
+api.get('/noticias/:id/:likeOrdislike', user_sessions.isLoggedIn, routeApi.userLikeDislike);
+
 
 app.use('/api', api);
 
@@ -148,10 +93,8 @@ app.listen(port);
 console.log('Server running on port ' + port);
 
 
-var Noticias = require("./app/models/noticia");
-
 /*
-
+var Noticias = require("./app/models/noticia");
 Noticias.find()
     .exec(function(err, noticias){
         console.log(err);

@@ -25,16 +25,8 @@ exports.ultimas = function(req, res) {
 exports.random = function(req, res) {
     var limite = 20;
     var l = parseInt(req.params.qtd);
+    l = isNaN(l) ? 1 : l;
 
-    if(isNaN(l)){
-        Noticias.findRandom(function(err, data){
-            if(err)
-                res.json({status: "error", error: err});
-            if(data)
-                res.json({status: "ok", data: data});
-        });
-    }
-    else{
         if(l > limite)
             l = limite;
 
@@ -45,8 +37,6 @@ exports.random = function(req, res) {
                 res.json({status: "ok", data: data});
 		});
 
-
-    }
 
 }
 
@@ -293,13 +283,12 @@ exports.url = function(req, res) {
 
 exports.userLikeDislike = function(req, res) {
     Noticias.findOne({"_id": req.params.id})
-        .select("-random")
+        .select("_id")
         .exec(function(err, noticia){
             if(err)
                 res.json({status: "error", error: err});
 
             if(noticia){
-
                 var obj = (req.params.likeOrdislike == "like") ? {newslikes: noticia._id} : {newsdislikes: noticia._id};
 
                     Users.findByIdAndUpdate(req.user._id, { $addToSet: obj })
@@ -310,6 +299,9 @@ exports.userLikeDislike = function(req, res) {
                                 res.json({status: "ok", user: user});
 
                         });
+            }
+            else{
+                res.json({status: "error", error: "notfound"});
             }
         });
 }
