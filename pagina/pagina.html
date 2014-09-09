@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="estilo.css">
+	<link rel="stylesheet" href="introjs.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top</a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	
+	<div class="container" style="margin-bottom: 20px;">
+
+		  <!-- Main component for a primary marketing message or call to action -->
+		  <div class="jumbotron" style="padding: 5px 30px;">
+			<div id="conteudo">
+				<h1>Recomendação de notícias</h1>
+				<p>Contamos com a sua participação de forma a que possamos criar um sistema de recomendação de notícias, permitindo entregar-lhe notícias de acordo com o seu gosto.</p>
+				<p>Apenas tem de marcar se a notícia é <strong>Interessante</strong> ou <strong>Desinteressante</strong> de acordo com o seu gosto, nas diversas notícias que vão aparecendo.</p>
+				<p><a class="btn btn-lg btn-info" id="tutorial">Ver tutorial</a> <a class="btn btn-lg btn-primary" id="comecar">Começar</a></p>
+			</div>
+		  </div>
+	  
+	  	<div class="row">
+		  	<div class="col-md-8">
+				<h3 id="progressotitulo"><strong>Progresso</strong> <small>Continue a classificar mesmo após atingir o mínimo recomendado</small></h3>
+				<div class="progress" data-step=10 data-intro="Indica o progresso ideal. <strong>Recomandamos que continue a avaliar notícias mesmo que atinga o mínimo.</strong>" style="height: 40px;">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30" style="width: 0%;">0/30</div>
+				</div>
+			</div>
+
+			<div class="col-md-4" data-toggle="popover" data-placement="left" data-content="Crie uma conta para poder retomar o seu progresso numa próxima visita">
+				<h3 id="progressotitulo" >Guardar conta <button type="submit" class="btn btn-warning btn-xs pull-right"><span class="glyphicon glyphicon-question-sign"></span></button></h3>
+				<form class="form" role="form">
+				  <div class="form-group">
+				    <label class="sr-only" for="email">Email address</label>
+				    <input type="email" class="form-control input-sm" id="email" placeholder="Email">
+				  </div>
+
+				  <div class="form-group">
+				    <label class="sr-only" for="password">Password</label>
+				    <input type="password" class="form-control input-sm" id="password" placeholder="Password">
+				  </div>
+
+				  <button type="submit" class="btn btn-primary btn-sm pull-right">Guardar</button>
+				</form>
+			</div>
+		</div>
+
+    </div>
+	
+	<div class="container" id="noticias">
+
+		<div class="row" id-noticia="123" data-step=1 data-intro="Isto é uma notícia (ou um excerto dela). Contém os dados mais relevantes de forma a que consiga determinar se lhe é interessante ou não.">
+			<div class="col-md-10">
+				<div class="noticia categoria_ciencia">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="img-rounded center-cropped" data-step=2 data-intro="Se a notícia contiver uma imagem, será apresentada aqui"></div>
+							
+							<!--<img class="img-rounded" src="http://adaptive-images.com/content/images/creepy.jpg" data-step=2 data-intro="Se a notícia contiver uma imagem, será apresentada aqui"> -->
+						</div>
+						<div class="col-md-9">
+							<h4 class="titulo" data-step=3 data-intro="Título da notícia">Exportações abrandam e agravam défice da balança comercial de bens</h4>
+							<div class="meta">
+								<ul class="list-inline">
+									<li data-step=4 data-intro="Jornal que publicou a notícia"><span class="glyphicon glyphicon-book"></span> <span class="jornal">Público</span></li>
+									<li data-step=5 data-intro="Categoria"><span class="glyphicon glyphicon-tag"></span> <span class="categoria">Economia</span></li>
+								</ul>
+							</div>
+								<blockquote>
+									<p class="subtitulo" data-step=6 data-intro="Algumas notícias possuem um subtítulo e se existir será então apresentado um pequeno parágrafo antes do excerto do corpo da notícia">Estagnação nas vendas para fora da UE penaliza exportações. Crescimento das importações também desacelera, mas não evita agravamento do saldo da balança comercial.</p>
+									<p class="texto" data-step=7 data-intro="Excerto do corpo da notícia">As exportações portuguesas abrandaram em Julho, contribuindo para a quase estagnação das vendas de bens ao exterior nos sete primeiros meses do ano. As importações também desaceleraram, mas o registo continua a ser de um crescimento mais forte do que as exportações, mostram dados publicados nesta segunda-feira pelo Instituto Nacional de Estatística (INE).</p>
+								</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-2">
+				<div class="botoes">
+					<button class="btn btn-lg btn-success btn-block" data-step=8 data-intro="Clique aqui se a notícia lhe for interessante"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+					<button class="btn btn-lg btn-danger btn-block" data-step=9 data-intro="Ou aqui se desinteressante"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="intro.js"></script>
+	<script src="jquery.cookie.js"></script>
+	
+	<script>
+		var listaNoticias = [];
+		var minNum = 30;
+		var avaliadas = 0;
+		$( document ).ready(function() {
+		
+			
+			var intro = introJs();
+			
+			var introDone = $.cookie('introducao_concluida');
+			$('[data-toggle=popover]').popover();
+			
+			if(introDone === 1)
+				$(".jumbotron").hide();
+
+			fetchNews(10, function(){
+				$("[id-noticia] .botoes button").click(function(e){
+					var div = $(this).parents("[id-noticia]");
+					avaliadas++;
+					$('.progress-bar').css('width', (avaliadas/minNum)*100+'%').attr('aria-valuenow', avaliadas).text(avaliadas+"/"+minNum);
+					
+					div.fadeOut(function(){
+					
+						substituiNoticia(div, function(){
+							div.fadeIn();
+						});
+						
+					});
+					
+				});
+			});
+			
+
+			$("#comecar").click(function(){
+				$('html, body').animate({
+					scrollTop: $("#progressotitulo").offset().top
+				}, 1000);
+			});
+			
+			$("#tutorial").click(function(){
+				intro.start();
+			});
+			
+			intro.oncomplete(function() {
+				$(".jumbotron").slideToggle();
+				$.cookie('introducao_concluida', 1);
+			});
+			intro.onexit(function() {
+				$(".jumbotron").slideToggle();
+			});
+		});
+		
+		function substituiNoticia(div, cb){
+			var noticia = listaNoticias.shift();
+
+			div.find(".titulo").text(limitWords(noticia.titulo, 10));
+
+			replace(div.find(".subtitulo"), limitWords(noticia.subtitulo, (noticia.textoNoticia) ? 20 : 80));
+				
+			div.find(".texto").text(limitWords(noticia.textoNoticia, (noticia.subtitulo) ? 40 : 80));
+			div.find(".jornal").text(noticia.jornal);
+
+			replace(div.find(".categoria"), noticia.categoria, "---");		
+
+			if(noticia.imgURL)
+				div.find(".center-cropped").css("background-image", "url('"+noticia.imgURL+"')")
+			else
+				div.find(".center-cropped").css("background-image", "url('http://placehold.it/202x176&text=Sem%20imagem')")
+
+			//attr("src", (noticia.imgURL) ? noticia.imgURL : "http://placehold.it/202x176&text=Sem%20imagem");
+
+			div.attr("id-noticia", noticia._id);
+
+			if(noticia.subtitulo)
+				div.find(".subtitulo").removeClass("hidden");
+			else
+				div.find(".subtitulo").addClass("hidden");
+				
+			fetchNews(5);
+			cb();
+
+
+		}
+
+		function replace(selector, type, rep){
+			if(type)
+				selector.text(type);
+			else
+				selector.text((rep) ? rep : "");
+		}
+		
+		function fetchNews(qtd, cb){
+			if(listaNoticias.length <= 5){
+				console.log("news loaded")
+				$.getJSON("http://newsptapi.herokuapp.com/api/noticias/random/" + qtd, function(data) {
+					if(data.status == "ok"){
+						listaNoticias = listaNoticias.concat(data.data);
+						data.data.forEach(function(noticia){
+							if(noticia.imgURL){
+								(new Image()).src = noticia.imgURL;
+							}
+						});
+						if(cb)
+							cb();
+					}
+				});
+			}
+		}
+		
+		function limitWords(textToLimit, wordLimit)
+		{
+			if(!textToLimit)
+				return "";
+
+			var finalText = "";
+			var text2 = textToLimit.replace(/\s+/g, ' ');
+			var text3 = text2.split(' ');
+			var numberOfWords = text3.length;
+			var i=0;
+
+			if(numberOfWords > wordLimit){
+				for(i=0; i< wordLimit; i++)
+					finalText = finalText+" "+ text3[i]+" ";
+				return finalText+"...";
+			}
+			else
+				return textToLimit;
+		}
+		
+		
+	</script>
+  </body>
+</html>

@@ -30,7 +30,7 @@ exports.random = function(req, res) {
         if(l > limite)
             l = limite;
 
-        Noticias.findRandom().limit(l).exec(function (err, data) {
+        Noticias.findRandom().select("-random -__v").limit(l).exec(function (err, data) {
 			if(err)
                 res.json({status: "error", error: err});
             if(data)
