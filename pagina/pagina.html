@@ -67,14 +67,14 @@
 		  </div>
 	  
 	  	<div class="row">
-		  	<div class="col-md-8">
+		  	<div class="col-sm-8">
 				<h3 id="progressotitulo"><strong>Progresso</strong> <small>Continue a classificar mesmo após atingir o mínimo recomendado</small></h3>
 				<div class="progress" data-step=10 data-intro="Indica o progresso ideal. <strong>Recomandamos que continue a avaliar notícias mesmo que atinga o mínimo.</strong>" style="height: 40px;">
 					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="30" style="width: 0%;">0/30</div>
 				</div>
 			</div>
 
-			<div class="col-md-4" data-toggle="popover" data-placement="left" data-content="Crie uma conta para poder retomar o seu progresso numa próxima visita">
+			<div class="col-sm-4" data-toggle="popover" data-placement="left" data-content="Crie uma conta para poder retomar o seu progresso numa próxima visita">
 				<h3 id="progressotitulo" >Guardar conta <button type="submit" class="btn btn-warning btn-xs pull-right"><span class="glyphicon glyphicon-question-sign"></span></button></h3>
 				<form class="form" role="form">
 				  <div class="form-group">
@@ -96,33 +96,32 @@
 	
 	<div class="container" id="noticias">
 
-		<div class="row" id-noticia="123" data-step=1 data-intro="Isto é uma notícia (ou um excerto dela). Contém os dados mais relevantes de forma a que consiga determinar se lhe é interessante ou não.">
-			<div class="col-md-10">
+		<div class="row hidden" intro="1" id-noticia="1" data-step=1 data-intro="Isto é uma notícia (ou um excerto dela). Contém os dados mais relevantes de forma a que consiga determinar se lhe é interessante ou não.">
+			<div class="col-sm-11">
 				<div class="noticia categoria_ciencia">
 					<div class="row">
-						<div class="col-md-3">
+						<div class="col-sm-3">
 							<div class="img-rounded center-cropped" data-step=2 data-intro="Se a notícia contiver uma imagem, será apresentada aqui"></div>
-							
-							<!--<img class="img-rounded" src="http://adaptive-images.com/content/images/creepy.jpg" data-step=2 data-intro="Se a notícia contiver uma imagem, será apresentada aqui"> -->
 						</div>
-						<div class="col-md-9">
-							<h4 class="titulo" data-step=3 data-intro="Título da notícia">Exportações abrandam e agravam défice da balança comercial de bens</h4>
+						<div class="col-sm-9">
+							<button type="button" id="saltarnoticia" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="titulo" data-step=3 data-intro="Título da notícia"></h4>
 							<div class="meta">
 								<ul class="list-inline">
-									<li data-step=4 data-intro="Jornal que publicou a notícia"><span class="glyphicon glyphicon-book"></span> <span class="jornal">Público</span></li>
-									<li data-step=5 data-intro="Categoria"><span class="glyphicon glyphicon-tag"></span> <span class="categoria">Economia</span></li>
+									<li data-step=4 data-intro="Jornal que publicou a notícia"><span class="glyphicon glyphicon-book"></span> <span class="jornal"></span></li>
+									<li data-step=5 data-intro="Categoria"><span class="glyphicon glyphicon-tag"></span> <span class="categoria"></span></li>
 								</ul>
 							</div>
 								<blockquote>
-									<p class="subtitulo" data-step=6 data-intro="Algumas notícias possuem um subtítulo e se existir será então apresentado um pequeno parágrafo antes do excerto do corpo da notícia">Estagnação nas vendas para fora da UE penaliza exportações. Crescimento das importações também desacelera, mas não evita agravamento do saldo da balança comercial.</p>
-									<p class="texto" data-step=7 data-intro="Excerto do corpo da notícia">As exportações portuguesas abrandaram em Julho, contribuindo para a quase estagnação das vendas de bens ao exterior nos sete primeiros meses do ano. As importações também desaceleraram, mas o registo continua a ser de um crescimento mais forte do que as exportações, mostram dados publicados nesta segunda-feira pelo Instituto Nacional de Estatística (INE).</p>
+									<p class="subtitulo" data-step=6 data-intro="Algumas notícias possuem um subtítulo e se existir será então apresentado um pequeno parágrafo antes do excerto do corpo da notícia"></p>
+									<p class="texto" data-step=7 data-intro="Excerto do corpo da notícia"></p>
 								</blockquote>
 						</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="col-md-2">
+			<div class="col-sm-1">
 				<div class="botoes">
 					<button class="btn btn-lg btn-success btn-block" data-step=8 data-intro="Clique aqui se a notícia lhe for interessante"><span class="glyphicon glyphicon-thumbs-up"></span></button>
 					<button class="btn btn-lg btn-danger btn-block" data-step=9 data-intro="Ou aqui se desinteressante"><span class="glyphicon glyphicon-thumbs-down"></span></button>
@@ -131,6 +130,24 @@
 		</div>
 
 
+	</div>
+
+	<div class="modal fade" id="progressoconcluido" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Progresso concluído</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Parabéns, acabou de classificar 30 notícias!</p>
+	        <h4>Recomendamos que continue a tarefa de forma a que possamos obter dados concretos sobre a sua preferência de notícias, contribuido para o sucesso do projecto.</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -142,10 +159,52 @@
 		var listaNoticias = [];
 		var minNum = 30;
 		var avaliadas = 0;
+
+		var numNoticias = 3;
+
 		$( document ).ready(function() {
 		
-			
 			var intro = introJs();
+			intro.setOptions({
+            steps: [
+	              { 
+	              	element: "div[intro='1']",
+	                intro: "Isto é uma notícia (ou um excerto dela). Contém os dados mais relevantes de forma a que consiga determinar se lhe é interessante ou não."
+	              },
+	              {
+	                element: 'div[intro="1"] .center-cropped',
+	                intro: "Se a notícia contiver uma imagem, será apresentada aqui"
+	              },
+	              {
+	                element: "div[intro='1'] .titulo",
+	                intro: "Título da notícia"
+	              },
+	              {
+	                element: 'div[intro="1"] ul > li',
+	                intro: 'Jornal que publicou a notícia'
+	              },
+	              {
+	                element: document.querySelectorAll('div[intro="1"] ul li')[1],
+	                intro: 'Categoria'
+	              },
+	              {
+	                element: 'div[intro="1"] blockquote',
+	                intro: 'Excerto do corpo da notícia'
+	              },
+	              {
+	                element: "div[intro] button",
+	                intro: 'Saltar notícia sem classificar'
+	              },
+	              {
+	                element: document.querySelectorAll('div[intro="1"] button')[1],
+	                intro: 'Clique aqui se a notícia lhe for interessante'
+	              },
+	              {
+	                element: document.querySelectorAll('div[intro="1"] button')[2],
+	                intro: 'Ou aqui se desinteressante'
+	              }
+	            ]
+	          });
 			
 			var introDone = $.cookie('introducao_concluida');
 			$('[data-toggle=popover]').popover();
@@ -154,11 +213,37 @@
 				$(".jumbotron").hide();
 
 			fetchNews(10, function(){
+
+				for (var i = 0; i < numNoticias - 1; i++) {
+					var d = $("[id-noticia=1]").clone().removeAttr('intro').appendTo("#noticias");
+					substituiNoticia(d);
+				};
+
+				substituiNoticia($("[id-noticia=1]"), function(){
+					$("[id-noticia]").each(function(index, el) {
+						$(el).removeClass('hidden');
+					});
+				});
+
+				$("[id-noticia] #saltarnoticia").click(function(e){
+					var div = $(this).parents("[id-noticia]");
+					div.fadeOut(function(){
+						substituiNoticia(div, function(){
+							div.fadeIn();
+						});
+					});
+				});
+
+
 				$("[id-noticia] .botoes button").click(function(e){
 					var div = $(this).parents("[id-noticia]");
 					avaliadas++;
 					$('.progress-bar').css('width', (avaliadas/minNum)*100+'%').attr('aria-valuenow', avaliadas).text(avaliadas+"/"+minNum);
 					
+					if(avaliadas == minNum){
+						$('#progressoconcluido').modal('show');
+					}
+
 					div.fadeOut(function(){
 					
 						substituiNoticia(div, function(){
@@ -169,7 +254,7 @@
 					
 				});
 			});
-			
+
 
 			$("#comecar").click(function(){
 				$('html, body').animate({
@@ -188,6 +273,8 @@
 			intro.onexit(function() {
 				$(".jumbotron").slideToggle();
 			});
+
+
 		});
 		
 		function substituiNoticia(div, cb){
@@ -207,8 +294,6 @@
 			else
 				div.find(".center-cropped").css("background-image", "url('http://placehold.it/202x176&text=Sem%20imagem')")
 
-			//attr("src", (noticia.imgURL) ? noticia.imgURL : "http://placehold.it/202x176&text=Sem%20imagem");
-
 			div.attr("id-noticia", noticia._id);
 
 			if(noticia.subtitulo)
@@ -217,7 +302,8 @@
 				div.find(".subtitulo").addClass("hidden");
 				
 			fetchNews(5);
-			cb();
+			if(cb)
+				cb();
 
 
 		}
@@ -266,6 +352,187 @@
 			else
 				return textToLimit;
 		}
+
+		var categoriaCores = {
+		    "": "",
+		    "actualidade": "",
+		    "africa": "",
+		    "alimentacao": "",
+		    "analise": "",
+		    "anatomia de uma foto": "",
+		    "apple": "",
+		    "apps": "",
+		    "apuramento": "#1abc9c",
+		    "artes": "",
+		    "aviao cai na ucrania": "",
+		    "aviao desaparecido": "",
+		    "benfica": "#1abc9c",
+		    "blatter": "",
+		    "blogues": "",
+		    "brasil": "",
+		    "brasileirao": "",
+		    "buzz": "",
+		    "cabo verde": "",
+		    "ces 2014": "",
+		    "ciencia": "#4EC3F0",
+		    "colunas": "",
+		    "comportamento": "",
+		    "computadores": "",
+		    "crise no ges": "#E67E22",
+		    "cristiano ronaldo": "#1abc9c",
+		    "cronica": "",
+		    "crowdfunding": "",
+		    "cultura": "",
+		    "culturaipsilon": "",
+		    "desce": "",
+		    "desemprego": "#E67E22",
+		    "design": "",
+		    "desporto": "#1abc9c",
+		    "destino 90s": "",
+		    "dicas": "",
+		    "dinheiro": "#E67E22",
+		    "divisao de honra": "",
+		    "dossies": "",
+		    "ebola": "",
+		    "economia": "#E67E22",
+		    "economia-politica": "#E67E22",
+		    "ecosfera": "",
+		    "editorial": "",
+		    "educacao": "",
+		    "eletrodomesticos": "",
+		    "emprego": "#E67E22",
+		    "emprego-universidades": "#E67E22",
+		    "empresas": "#E67E22",
+		    "empresas-financas": "#E67E22",
+		    "ensaio de memoria": "",
+		    "ensino superior": "",
+		    "entrevista": "",
+		    "entrevistas": "",
+		    "epcr": "",
+		    "especiais": "",
+		    "euro 2016": "#1abc9c",
+		    "euro-2016": "#1abc9c",
+		    "evento": "",
+		    "eventos": "",
+		    "fabregas": "#1abc9c",
+		    "fama": "",
+		    "familia e vida privada": "",
+		    "faz": "",
+		    "fc porto": "#1abc9c",
+		    "festival": "",
+		    "figura": "",
+		    "financas pessoais": "#E67E22",
+		    "fora de campo": "#1abc9c",
+		    "fotografia": "",
+		    "futebol": "#1abc9c",
+		    "gastronomia": "",
+		    "gente": "",
+		    "gil vicente": "#1abc9c",
+		    "globo": "",
+		    "hardware": "",
+		    "hoquei em patins": "#1abc9c",
+		    "ibrahimovic": "#1abc9c",
+		    "iciencia": "#4EC3F0",
+		    "ii liga": "#1abc9c",
+		    "imagem do dia": "",
+		    "incrivel": "",
+		    "inquerito": "",
+		    "insolito": "",
+		    "insolitos": "",
+		    "internacional": "",
+		    "internacionalizacao": "",
+		    "internet": "",
+		    "investigacao": "",
+		    "ipassatempos": "",
+		    "italia": "",
+		    "jogo da vida": "",
+		    "jogos": "",
+		    "jonas": "",
+		    "lifestyle": "",
+		    "liga": "#1abc9c",
+		    "liga record": "#1abc9c",
+		    "liv": "",
+		    "local": "",
+		    "los angeles": "",
+		    "lusofonia": "",
+		    "mais": "",
+		    "maisfutebol": "#1abc9c",
+		    "mercados": "#E67E22",
+		    "michael schumacher": "",
+		    "mls- joe nasco": "",
+		    "mobilidade": "",
+		    "modalidades": "",
+		    "motor": "",
+		    "multimedia": "",
+		    "mundial": "",
+		    "mundo": "",
+		    "musica": "",
+		    "nacional": "",
+		    "nani": "#1abc9c",
+		    "negocios": "#E67E22",
+		    "noticias": "",
+		    "nova iorque": "",
+		    "o italiano avisou": "",
+		    "olha a sic": "",
+		    "opiniao": "",
+		    "opiniao e blogues": "",
+		    "paco alcacer": "",
+		    "pais": "",
+		    "pedro barbosa escreve": "",
+		    "pessoas": "",
+		    "polemica": "",
+		    "politica": "",
+		    "porto": "",
+		    "portugal": "",
+		    "praxes academicas": "",
+		    "previsoes": "",
+		    "primarias no ps": "",
+		    "projecto": "",
+		    "psg": "",
+		    "pub-media": "",
+		    "qualificacao campeonato da europa": "#1abc9c",
+		    "qualificacao campeonato europa": "#1abc9c",
+		    "quiosque": "",
+		    "raguebi juvenil": "#1abc9c",
+		    "ray rice": "",
+		    "redes sociais": "",
+		    "reportagem": "",
+		    "reus": "",
+		    "rugby championship": "#1abc9c",
+		    "running": "#1abc9c",
+		    "saude": "",
+		    "seguranca": "",
+		    "selecao": "",
+		    "selecoes": "",
+		    "sevens": "",
+		    "sidnei": "",
+		    "sociedade": "",
+		    "sociedade aberta": "",
+		    "software": "",
+		    "sporting": "#1abc9c",
+		    "street art": "",
+		    "sub17": "",
+		    "surf": "",
+		    "tech": "",
+		    "tecnologia": "",
+		    "telecomunicacoes": "",
+		    "televisao": "",
+		    "tenis": "#1abc9c",
+		    "tiago": "",
+		    "top 14": "",
+		    "transferencias": "#1abc9c",
+		    "tv": "",
+		    "ultimas": "",
+		    "us open": "#1abc9c",
+		    "viagem": "",
+		    "viagens": "",
+		    "vida": "",
+		    "videojogos": "",
+		    "vitoria guimaraes": "#1abc9c",
+		    "vitoria setubal": "#1abc9c",
+		    "zenit": "#1abc9c"
+		}
+
 		
 		
 	</script>

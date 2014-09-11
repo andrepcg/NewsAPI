@@ -35,9 +35,10 @@
 }
 
 .botoes .btn {
-	font-size: 60px;
+	font-size: 30px;
 	padding-top: 20px;
 	height: 107px;
+	padding: 0;
 }
 
 
