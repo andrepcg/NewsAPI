@@ -21,7 +21,9 @@ module.exports = {
 
             r.imgURL = $(".mainCol .article-image img").attr("src");
 
-            r.categoria = "";
+            var metaKeys = $("meta[name=keywords]").attr("content").split(",");
+            r.categoria = metaKeys[metaKeys.length - 1];
+            
             if(r.titulo == "")
                 return null;
             else

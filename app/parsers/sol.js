@@ -17,7 +17,6 @@ module.exports = {
             r.titulo = $('header h1.entry-title').text();
             r.subtitulo = $("header .entry-blurb p").text();
 
-            //r.timestamp = data($(".meta-timestamp.published time").text());
             r.timestamp = moment($(".meta-timestamp.published time").text(), "DD/MM/YYYY - hh:mm").toDate();
 
 

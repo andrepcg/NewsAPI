@@ -4,6 +4,7 @@ var crypto = require('crypto-js');
 var fs = require("fs");
 var iconv = require('iconv-lite');
 var jschardet = require("jschardet");
+var utils = require("./utils");
 
 var Noticia = require('./models/noticia');
 
@@ -78,6 +79,8 @@ var parsers = {
                                 res.hash = noticiaHash(res);
                                 if(res.categoria === undefined)
                                     res.categoria = provider.categoriaFromUrl(url2);
+
+                                res.categoria = utils.limparPalavra(res.categoria);
 
                                 cb(null, res);
                             }

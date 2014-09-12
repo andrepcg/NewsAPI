@@ -23,6 +23,11 @@ module.exports = {
             r.imgURL = content.find(".noticia_destaque_foto img").attr("src");
 
         r.textoNoticia = utils.limparTexto(content.find(".noticia_individual_corpo_noticias p").slice(0,-2).text());
+        var keys = $("meta[name=keywords]").attr("content");
+
+        if(keys)
+            r.keywords = keys.split(",");
+
 
 
         r.categoria = "";

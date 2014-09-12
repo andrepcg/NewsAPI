@@ -15,7 +15,13 @@ var sicnoticias = {
         r.titulo = utils.limparTexto($(".articleFullDetail .listContainer > div .titleContainer").text());
         r.subtitulo = utils.limparTexto($(".articleFullDetail .listContainer > div .leadContainer").text());
         r.timestamp = moment($(".articleFullDetail .listContainer > div .dateContainer").text(),"HH:mm DD.MM.YYYY").toDate();
-        r.imgURL = $(".articleFullDetail .listContainer > div ").attr("data-thumbnail");
+
+        var img = $(".articleFullDetail .listContainer > div ").attr("data-thumbnail");
+        if(img && img.indexOf("null") == -1)
+            r.imgURL = $(".articleFullDetail .listContainer > div ").attr("data-thumbnail");
+
+        var media = $(".articleFullDetail .listContainer > div ").attr("data-src");
+        r.media = (media != "null") ? media : "";
         r.textoNoticia = utils.limparTexto($(".articleFullDetail .listContainer > div .bodyContainer").text());
         r.categoria = $(".articleFullDetail .listContainer > div .sectionNameContainer").text().trim();
 

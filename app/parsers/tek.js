@@ -13,7 +13,6 @@ module.exports = {
 
         var content = $($(".content-main .box-artigo")[0]);
 
-        //onsole.log(content.children());
         r.titulo = content.children("h2").text();
         r.subtitulo = content.find("h3.artigo").text();
 
@@ -30,8 +29,6 @@ module.exports = {
             if(i != 0)
                 r.keywords.push($(item).text().replace(/_/g," "));
         });
-
-        //r.keywords.push($(".news-item .topic").text());
 
         if(r.titulo == "")
             return null;

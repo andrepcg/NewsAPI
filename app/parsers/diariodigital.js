@@ -13,8 +13,9 @@ module.exports = {
         r.subtitulo = utils.limparTexto($(".main_content .txt h4:nth-of-type(1)").text());
 
         r.timestamp = new Date();
-        if($(".main_content .commmentarios .photo img").attr("src") !== undefined)
-            r.imgURL = "http://diariodigital.sapo.pt" + $(".main_content .commmentarios .photo img").attr("src");
+		var src = $(".main_content .commmentarios .photo img").attr("src")
+        if(src !== undefined)
+            r.imgURL = (src.indexOf("http://") >= 0) ? src : "http://diariodigital.sapo.pt" + src;
 
         r.textoNoticia = utils.limparTexto($(".main_content .txt p").text());
         r.categoria = $("#header .nav .active").text();

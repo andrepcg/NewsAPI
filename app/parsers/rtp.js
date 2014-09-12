@@ -23,7 +23,7 @@ module.exports = {
         r.subtitulo = utils.limparTexto((st.length > 0) ? st.text() : "");
 
         r.timestamp = new Date(content.find("header time").attr("datetime"));
-        r.categoria = $("nav .selected > a").text();
+        r.categoria = $(".SiteMap .last").text();
 
         if(video_detail.length == 0){
             r.textoNoticia = utils.limparTexto(content.find("p:not([class])").text());
@@ -34,7 +34,7 @@ module.exports = {
             });
         }
         else
-            r.textoNoticia = content.find("header > h2").text();
+            r.textoNoticia = utils.limparTexto(content.find("header > h2").text());
 
 
 

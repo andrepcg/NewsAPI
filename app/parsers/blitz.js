@@ -17,7 +17,7 @@ module.exports = {
         r.timestamp = new Date();
 
 
-        r.imgURL = "http://blitz.sapo.pt" + $("#tabelaNoticia .fotoGuia img").attr("src");
+        r.imgURL = "http://blitz.sapo.pt/" + $("#tabelaNoticia .fotoGuia img").attr("src");
         r.textoNoticia = utils.limparTexto($("#tabelaNoticia table:nth-of-type(1) #bodyNoticiaDetalhe p").text());
 
         r.categoria = "Musica";

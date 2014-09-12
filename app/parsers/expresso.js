@@ -24,6 +24,7 @@ module.exports = {
 
         r.textoNoticia = utils.limparTexto($("#artigo #conteudo p").text());
         r.categoria = $(".levels .levelsAnchors:nth-child(2)").text().trim();
+        r.keywords = [$("#artigo .article-pretitle").text().trim()];
 
         if(r.titulo == "")
             return null;
