@@ -1,6 +1,6 @@
 var Noticias = require('../models/noticia');
 var Users = require('../models/user');
-var parsers = require("../parsers");
+var parsers = require("../parsers").parsers;
 var async = require('async');
 var utils = require("../utils");
 
