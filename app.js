@@ -1,5 +1,5 @@
 //require('graphdat');
-require('newrelic');
+//require('newrelic');
 
 
 require('nodetime').profile({
