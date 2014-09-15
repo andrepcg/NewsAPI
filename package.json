@@ -19,12 +19,13 @@
     "request": "latest",
     "underscore": "latest",
     "sanitize-html": "latest",
-	"bcrypt-nodejs": "latest",
-	"cheerio": "latest",
+	  "bcrypt-nodejs": "latest",
+	  "cheerio": "latest",
     "iconv-lite": "0.4.4",
     "jschardet": "latest",
-	"moment": "latest",
-	"nodetime": "latest"
+	  "moment": "latest",
+	  "nodetime": "latest",
+    "newrelic": "latest"
   },
   "devDependencies": {},
   "scripts": {

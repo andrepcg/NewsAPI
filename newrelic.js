@@ -8,7 +8,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name : 'noticias',
+  app_name : 'newsAPI',
   /**
    * Your New Relic license key.
    */

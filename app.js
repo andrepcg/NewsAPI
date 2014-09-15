@@ -1,5 +1,5 @@
 //require('graphdat');
-//require('newrelic');
+require('newrelic');
 
 
 require('nodetime').profile({
@@ -80,7 +80,7 @@ app.use('/api', api);
 
 var parsers = require("./app/parsers");
 
-app.get('/', function(req, res) {
+app.get('/', /*user_sessions.isLoggedIn, */function(req, res) {
 	var j = [];
 	parsers.nomesJornais.forEach(function(item){
 		j.push("/api/jornal/" + item);
