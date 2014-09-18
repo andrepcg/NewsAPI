@@ -56,10 +56,6 @@ else {
     app.use(compression());
 }
 
-//
-
-
-app.all('*', user_sessions.generateNewUser);
 
 // API
 apiRouter.get('/', function(req, res) {
@@ -89,7 +85,9 @@ apiRouter.get('/noticias/:id/:likeOrdislike', user_sessions.isLoggedIn, routeApi
 
 apiRouter.get("/logintest", user_sessions.isLoggedIn, user_sessions.logintest);
 
+// 
 // Pagina Recomendacao
+//
 app.get("/", user_sessions.isLoggedIn, function(req, res){
     res.render("classificador", {user: req.user});
 });
