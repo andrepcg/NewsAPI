@@ -17,14 +17,17 @@ var userSchema = mongoose.Schema({
     catdislike:  [String],
 
     newslikes:           [{type: mongoose.Schema.Types.ObjectId, ref: 'Noticia'}],
-    newsdislikes:        [{type: mongoose.Schema.Types.ObjectId, ref: 'Noticia'}]
+    newsdislikes:        [{type: mongoose.Schema.Types.ObjectId, ref: 'Noticia'}],
+
+    classificadas: {type: Number, default: 0},
+
+    anoNascimento: {type: Number, default: (new Date()).getFullYear()},
+    sexo: {type: String, default: "m"},
+    horasNoticias: {type: Number, default: 0}
 });
 
 userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
-
-//noticiaSchema.plugin(random());
-
 
 module.exports = mongoose.model('User', userSchema, 'users');

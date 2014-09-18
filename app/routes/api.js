@@ -291,7 +291,7 @@ exports.userLikeDislike = function(req, res) {
             if(noticia){
                 var obj = (req.params.likeOrdislike == "like") ? {newslikes: noticia._id} : {newsdislikes: noticia._id};
 
-                    Users.findByIdAndUpdate(req.user._id, { $addToSet: obj })
+                    Users.findByIdAndUpdate(req.user._id, { $addToSet: obj, $inc: {"classificadas": 1} })
                         .exec(function(err, user){
                             if(err)
                                 res.json({status: "error", error: err});
@@ -304,4 +304,8 @@ exports.userLikeDislike = function(req, res) {
                 res.json({status: "error", error: "notfound"});
             }
         });
+}
+
+exports.saveUserPrefs = function(req, res) {
+
 }

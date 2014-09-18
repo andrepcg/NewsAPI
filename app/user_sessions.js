@@ -12,8 +12,12 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-exports.isLoggedIn = function(req, res, next) {
+exports.logintest = function(req, res) {
+    res.send(req.user);
+}
 
+exports.isLoggedIn = function(req, res, next) {
+    debugger;
     if (req.isAuthenticated()){
         console.log("user autenticado");
         return next();
@@ -33,6 +37,13 @@ exports.isLoggedIn = function(req, res, next) {
                         next();
                     });
                 }
+                else{
+                    console.log("user nao encontrado, criar novo")
+                    res.clearCookie("token");
+                    res.clearCookie("uid");
+                    generateNewUser(req, res, next);
+                    //next();
+                }
             });
     }
     else if(req.query.uid){
@@ -51,6 +62,7 @@ exports.isLoggedIn = function(req, res, next) {
                         next();
                     });
                 }
+
             });
     }
 
