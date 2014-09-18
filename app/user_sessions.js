@@ -17,7 +17,7 @@ exports.logintest = function(req, res) {
 }
 
 exports.isLoggedIn = function(req, res, next) {
-    debugger;
+
     if (req.isAuthenticated()){
         console.log("user autenticado");
         return next();
