@@ -1,13 +1,13 @@
 //require('graphdat');
 //require('newrelic');
 
-/*
+
 require('nodetime').profile({
     accountKey: '61800f4ee2e561efe86314bb98e3df42fa91181e',
     appName: 'NewsAPI'
 });
 
-*/
+
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
@@ -85,9 +85,9 @@ apiRouter.get('/noticias/:id/:likeOrdislike', user_sessions.isLoggedIn, routeApi
 
 apiRouter.get("/logintest", user_sessions.isLoggedIn, user_sessions.logintest);
 
-// 
+/* 
 // Pagina Recomendacao
-//
+*/
 app.get("/", user_sessions.isLoggedIn, function(req, res){
     res.render("classificador", {user: req.user});
 });
