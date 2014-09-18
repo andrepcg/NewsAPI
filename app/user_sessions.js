@@ -18,7 +18,26 @@ exports.logintest = function(req, res) {
 
 exports.isLoggedIn = function(req, res, next) {
 
-    if (req.isAuthenticated()){
+    if(req.query.uid){
+        console.log("a fazer login a partir do uid")
+        User.findOne({"uid": req.query.uid})
+            .exec(function(err, user){
+                if (err)
+                    return next(err);
+
+                if(user){
+                    req.login(user, function(err) {
+                        if (err)
+                            return next(err);
+                        res.cookie("token", user.token);
+                        res.cookie("uid", user.uid);
+                        next();
+                    });
+                }
+
+            });
+    }
+    else if (req.isAuthenticated()){
         console.log("user autenticado");
         return next();
     }
@@ -42,35 +61,18 @@ exports.isLoggedIn = function(req, res, next) {
                     res.clearCookie("token");
                     res.clearCookie("uid");
                     generateNewUser(req, res, next);
-                    //next();
                 }
             });
     }
-    else if(req.query.uid){
-        console.log("a fazer login a partir do uid")
-        User.findOne({"uid": req.query.uid})
-            .exec(function(err, user){
-                if (err)
-                    return next(err);
-
-                if(user){
-                    req.login(user, function(err) {
-                        if (err)
-                            return next(err);
-                        res.cookie("token", user.token);
-                        res.cookie("uid", user.uid);
-                        next();
-                    });
-                }
-
-            });
-    }
+    else
+        generateNewUser(req, res, next);
+    
 
 }
 
-exports.generateNewUser = function(req, res, next) {
+var generateNewUser = function(req, res, next) {
 
-    if(!req.cookies.token && !req.cookies.uid && !req.query.uid){
+
         var u = {uid: utils.generateUUID(), token: utils.generateRandom(64)};
         var user = new User(u);
         user.save(function(err){
@@ -87,7 +89,5 @@ exports.generateNewUser = function(req, res, next) {
                 });
             }
         });
-    }
-    else
-        next();
+
 }
